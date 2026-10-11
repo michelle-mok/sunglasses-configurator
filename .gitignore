@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Original Khronos model (contains the logos), not published
+assets-src/
