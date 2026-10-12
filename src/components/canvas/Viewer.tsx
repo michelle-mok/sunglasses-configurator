@@ -15,6 +15,7 @@ export function Viewer() {
                 near: CAMERA_NEAR,
                 far: CAMERA_FAR,
             }}
+            frameloop="demand"
         >
             <mesh>
                 <boxGeometry args={BOX_DIMENSIONS} />
