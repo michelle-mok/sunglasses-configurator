@@ -1,5 +1,7 @@
+import { Viewer } from './components/canvas/Viewer';
+
 function App() {
-    return <h1>Sunglasses Configurator</h1>;
+    return <Viewer />;
 }
 
 export default App;
