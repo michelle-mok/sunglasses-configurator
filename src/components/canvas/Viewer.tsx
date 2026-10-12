@@ -1,6 +1,6 @@
 import { Canvas } from '@react-three/fiber';
+import { Sunglasses } from './Sunglasses';
 
-const BOX_DIMENSIONS = [0.1505, 0.0576, 0.1615] as const;
 const FOV_DEGREES = 30;
 const CAMERA_START_POSITION = [0.3, 0.18, 0.48] as const;
 const CAMERA_NEAR = 0.01;
@@ -17,10 +17,7 @@ export function Viewer() {
             }}
             frameloop="demand"
         >
-            <mesh>
-                <boxGeometry args={BOX_DIMENSIONS} />
-                <meshNormalMaterial />
-            </mesh>
+            <Sunglasses />
         </Canvas>
     );
 }
