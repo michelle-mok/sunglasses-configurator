@@ -3,6 +3,7 @@ import { Sunglasses } from './Sunglasses';
 import STUDIO_HDR_URL from '../../assets/studio_small_03_1k.hdr?url';
 import { Environment } from '@react-three/drei';
 import { Suspense } from 'react';
+import { NeutralToneMapping } from 'three';
 
 const FOV_DEGREES = 30;
 const CAMERA_START_POSITION = [0.3, 0.18, 0.48] as const;
@@ -19,6 +20,7 @@ export function Viewer() {
                 far: CAMERA_FAR,
             }}
             frameloop="demand"
+            gl={{ toneMapping: NeutralToneMapping }}
         >
             <Suspense fallback={null}>
                 <Environment files={STUDIO_HDR_URL} />
