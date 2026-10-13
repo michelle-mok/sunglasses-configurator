@@ -1,7 +1,7 @@
 import { Canvas } from '@react-three/fiber';
 import { Sunglasses } from './Sunglasses';
 import STUDIO_HDR_URL from '../../assets/studio_small_03_1k.hdr?url';
-import { Environment } from '@react-three/drei';
+import { Environment, OrbitControls } from '@react-three/drei';
 import { Suspense } from 'react';
 import { NeutralToneMapping } from 'three';
 
@@ -26,6 +26,7 @@ export function Viewer() {
                 <Environment files={STUDIO_HDR_URL} />
                 <Sunglasses />
             </Suspense>
+            <OrbitControls />
         </Canvas>
     );
 }
