@@ -9,6 +9,12 @@ const FOV_DEGREES = 30;
 const CAMERA_START_POSITION = [0.3, 0.18, 0.48] as const;
 const CAMERA_NEAR = 0.01;
 const CAMERA_FAR = 10;
+const MODEL_BOUNDING_SPHERE_RADIUS = 0.1064;
+const MIN_ORBIT_DISTANCE =
+    MODEL_BOUNDING_SPHERE_RADIUS / Math.sin(FOV_DEGREES * 0.5 * (Math.PI / 180));
+const MAX_ORBIT_DISTANCE = 1.0;
+const MIN_POLAR_ANGLE = 20 * (Math.PI / 180);
+const MAX_POLAR_ANGLE = 100 * (Math.PI / 180);
 
 export function Viewer() {
     return (
@@ -21,12 +27,23 @@ export function Viewer() {
             }}
             frameloop="demand"
             gl={{ toneMapping: NeutralToneMapping }}
+            onWheelCapture={(event) => {
+                if (!event.ctrlKey && !event.metaKey) {
+                    event.stopPropagation();
+                }
+            }}
         >
             <Suspense fallback={null}>
                 <Environment files={STUDIO_HDR_URL} />
                 <Sunglasses />
             </Suspense>
-            <OrbitControls />
+            <OrbitControls
+                enablePan={false}
+                minDistance={MIN_ORBIT_DISTANCE}
+                maxDistance={MAX_ORBIT_DISTANCE}
+                minPolarAngle={MIN_POLAR_ANGLE}
+                maxPolarAngle={MAX_POLAR_ANGLE}
+            />
         </Canvas>
     );
 }
