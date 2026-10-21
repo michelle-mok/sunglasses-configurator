@@ -108,3 +108,7 @@ export const PRODUCT_CATEGORIES = [
         ],
     },
 ] as const satisfies readonly (OptionCategory | LensCategory)[];
+
+export type CategoryId = (typeof PRODUCT_CATEGORIES)[number]['id'];
+
+export type OptionId = (typeof PRODUCT_CATEGORIES)[number]['options'][number]['id'];
