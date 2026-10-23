@@ -4,7 +4,7 @@ const KEY_LIGHT_POSITION = [0, 3, 0] as const;
 const KEY_LIGHT_SCALE: [number, number] = [6, 6];
 const KEY_LIGHT_INTENSITY = 4;
 
-const FRONT_LIGHT_POSITION = [0, 0.5, 5] as const;
+const FRONT_LIGHT_POSITION = [0, 1, 5] as const;
 const FRONT_LIGHT_SCALE: [number, number] = [8, 2];
 const FRONT_LIGHT_INTENSITY = 1;
 
